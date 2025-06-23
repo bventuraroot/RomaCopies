@@ -17,6 +17,19 @@ class Product extends Model
         'type',
         'price',
         'description',
-        'image'
+        'image',
+        'category',
+        'provider_id',
+        'user_id'
     ];
+
+    public function provider()
+    {
+        return $this->belongsTo(Provider::class);
+    }
+
+    public function inventory()
+    {
+        return $this->hasOne(Inventory::class);
+    }
 }

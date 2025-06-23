@@ -84,6 +84,61 @@ $(function () {
           render: function (data, type, full, meta) {
             return '';
           }
+        },
+        {
+          // Imagen - Prioridad alta
+          responsivePriority: 1,
+          targets: 1
+        },
+        {
+          // Código - Prioridad alta
+          responsivePriority: 2,
+          targets: 2
+        },
+        {
+          // Nombre - Prioridad alta
+          responsivePriority: 3,
+          targets: 3
+        },
+        {
+          // Precio - Prioridad media
+          responsivePriority: 4,
+          targets: 4
+        },
+        {
+          // Proveedor - Prioridad media
+          responsivePriority: 5,
+          targets: 5
+        },
+        {
+          // C. Fiscal - Prioridad baja
+          responsivePriority: 6,
+          targets: 6
+        },
+        {
+          // Tipo - Prioridad baja
+          responsivePriority: 7,
+          targets: 7
+        },
+        {
+          // Categoría - Prioridad media
+          responsivePriority: 8,
+          targets: 8
+        },
+        {
+          // Estado - Prioridad baja
+          responsivePriority: 9,
+          targets: 9
+        },
+        {
+          // Descripción - Prioridad baja
+          responsivePriority: 10,
+          targets: 10
+        },
+        {
+          // Acciones - Prioridad máxima (siempre visible)
+          responsivePriority: 1,
+          targets: 11
         }
       ],
       order: [[2, 'desc']],
@@ -113,7 +168,7 @@ $(function () {
               text: '<i class="ti ti-printer me-2" ></i>Print',
               className: 'dropdown-item',
               exportOptions: {
-                columns: [1, 2, 3, 4, 5],
+                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
                 // prevent avatar to be print
                 format: {
                   body: function (inner, coldex, rowdex) {
@@ -150,7 +205,7 @@ $(function () {
               text: '<i class="ti ti-file-text me-2" ></i>Csv',
               className: 'dropdown-item',
               exportOptions: {
-                columns: [1, 2, 3, 4, 5],
+                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
                 // prevent avatar to be display
                 format: {
                   body: function (inner, coldex, rowdex) {
@@ -174,7 +229,7 @@ $(function () {
               text: '<i class="ti ti-file-spreadsheet me-2"></i>Excel',
               className: 'dropdown-item',
               exportOptions: {
-                columns: [1, 2, 3, 4, 5],
+                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
                 // prevent avatar to be display
                 format: {
                   body: function (inner, coldex, rowdex) {
@@ -198,7 +253,7 @@ $(function () {
               text: '<i class="ti ti-file-code-2 me-2"></i>Pdf',
               className: 'dropdown-item',
               exportOptions: {
-                columns: [1, 2, 3, 4, 5],
+                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
                 // prevent avatar to be display
                 format: {
                   body: function (inner, coldex, rowdex) {
@@ -222,7 +277,7 @@ $(function () {
               text: '<i class="ti ti-copy me-2" ></i>Copy',
               className: 'dropdown-item',
               exportOptions: {
-                columns: [1, 2, 3, 4, 5],
+                columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
                 // prevent avatar to be display
                 format: {
                   body: function (inner, coldex, rowdex) {

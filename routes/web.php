@@ -23,6 +23,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BarcodeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarcaController;
+use App\Http\Controllers\InventoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,11 +44,9 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, 'home'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::middleware(['auth', 'permission:manage_users'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
 
 Route::group(['prefix' => 'client', 'as' => 'client.'], function(){
 
@@ -145,6 +144,7 @@ Route::group(['prefix' => 'product', 'as' => 'product.'], function(){
         Route::patch('update', [ProductController::class, 'update'])->name('update');
         Route::post('store', [ProductController::class, 'store'])->name('store');
         Route::get('destroy/{id}', [ProductController::class, 'destroy'])->name('destroy');
+        Route::post('toggleState/{id}', [ProductController::class, 'toggleState'])->name('toggleState');
         Route::get('getpermission', [ProductController::class, 'getpermission'])->name('getpermission');
 
     });
@@ -239,7 +239,22 @@ Route::group(['prefix' => 'factmh', 'as' => 'factmh.'], function(){
 
 Route::get('/generate-barcode/{code}', [BarcodeController::class, 'generate'])->name('generate.barcode');
 Route::get('/barcode/{code}', [BarcodeController::class, 'generate'])->name('barcode.generate');
+
+// Rutas de inventario (solo requieren autenticación)
+Route::resource('inventory', InventoryController::class);
+
+Route::group(['prefix' => 'inve', 'as' => 'inve.'], function(){
+    Route::post('store', [InventoryController::class, 'store'])->name('store');
+    Route::get('edit/{id}', [InventoryController::class, 'show'])->name('edit');
+    Route::put('edit/{id}', [InventoryController::class, 'update'])->name('edit.update');
+    Route::delete('edit/{id}', [InventoryController::class, 'destroy'])->name('edit.destroy');
+    Route::get('export', [InventoryController::class, 'export'])->name('export');
+    Route::get('providers', [InventoryController::class, 'getProviders'])->name('providers');
+    Route::get('list', [InventoryController::class, 'list'])->name('list');
+    Route::post('toggle-state/{id}', [InventoryController::class, 'toggleState'])->name('toggle-state');
 });
+
+
 });
 
 

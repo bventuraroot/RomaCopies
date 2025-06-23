@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.40, for macos12.7 (arm64)
+-- MySQL dump 10.13  Distrib 8.0.42, for macos15.2 (arm64)
 --
--- Host: localhost    Database: explorer
+-- Host: localhost    Database: romacopies
 -- ------------------------------------------------------
--- Server version	8.0.40
+-- Server version	8.0.32
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -37,7 +37,7 @@ CREATE TABLE `addresses` (
   CONSTRAINT `addresses_country_id_foreign` FOREIGN KEY (`country_id`) REFERENCES `countries` (`id`) ON DELETE CASCADE,
   CONSTRAINT `addresses_department_id_foreign` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`) ON DELETE CASCADE,
   CONSTRAINT `addresses_municipality_id_foreign` FOREIGN KEY (`municipality_id`) REFERENCES `municipalities` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `addresses` (
 
 LOCK TABLES `addresses` WRITE;
 /*!40000 ALTER TABLE `addresses` DISABLE KEYS */;
-INSERT INTO `addresses` VALUES (11,1,6,110,'Av. Masferrer Polig. M-N, URB. Maquilishuat, #3','2024-01-12 02:50:53','2024-01-12 02:50:53'),(12,1,6,110,'Urb. Mquilishuat, Pol m-n ,numero 3','2024-01-12 02:57:09','2024-01-12 02:57:09'),(13,1,6,110,'Urb. Mquilishuat, Pol M-N,numero 3','2024-01-12 03:00:11','2024-01-12 03:00:11'),(14,1,6,110,'305 Plza, calle Loma Linda, colonia San Benito, San Salvador. Esto es 60 metros hacia abajo del redondel Brasil Zona Rosa.','2024-11-06 02:57:27','2024-11-06 02:57:27'),(15,1,6,110,'305 Plza, calle Loma Linda, colonia San Benito, San Salvador. Esto es 60 metros hacia abajo del redondel Brasil Zona Rosa.','2024-11-06 02:58:15','2024-11-06 02:58:15'),(16,1,6,110,'305 Plza, calle Loma Linda, colonia San Benito, San Salvador. Esto es 60 metros hacia abajo del redondel Brasil Zona Rosa.','2024-11-06 03:02:18','2025-02-26 11:47:24'),(17,1,3,40,'col 14','2025-02-21 22:23:24','2025-02-21 22:23:24'),(18,1,3,40,'col 14','2025-02-21 22:27:07','2025-02-21 22:27:07'),(19,1,3,40,'col 14','2025-02-21 22:27:25','2025-02-21 22:27:25'),(20,1,3,40,'col 14 dic','2025-02-25 04:53:27','2025-02-25 04:53:27'),(21,1,6,110,'vijosa','2025-02-25 04:55:07','2025-02-25 04:55:07'),(22,1,3,26,'Sosa','2025-02-25 05:04:10','2025-02-25 05:04:10'),(23,1,5,75,'Av. Jerusalem','2025-02-25 05:05:53','2025-02-25 05:05:53'),(24,1,6,110,'Sivar','2025-02-26 00:20:07','2025-02-26 00:20:07'),(25,1,2,17,'direction','2025-02-26 23:18:22','2025-02-26 23:18:22'),(26,1,1,9,'asdasd','2025-03-01 00:25:12','2025-03-01 00:25:12');
+INSERT INTO `addresses` VALUES (11,1,6,110,'Av. Masferrer Polig. M-N, URB. Maquilishuat, #3','2024-01-12 02:50:53','2024-01-12 02:50:53'),(12,1,6,110,'Urb. Mquilishuat, Pol m-n ,numero 3','2024-01-12 02:57:09','2024-01-12 02:57:09'),(13,1,6,110,'Urb. Mquilishuat, Pol M-N,numero 3','2024-01-12 03:00:11','2024-01-12 03:00:11'),(14,1,6,110,'305 Plza, calle Loma Linda, colonia San Benito, San Salvador. Esto es 60 metros hacia abajo del redondel Brasil Zona Rosa.','2024-11-06 02:57:27','2024-11-06 02:57:27'),(15,1,6,110,'305 Plza, calle Loma Linda, colonia San Benito, San Salvador. Esto es 60 metros hacia abajo del redondel Brasil Zona Rosa.','2024-11-06 02:58:15','2024-11-06 02:58:15'),(16,1,6,110,'305 Plza, calle Loma Linda, colonia San Benito, San Salvador. Esto es 60 metros hacia abajo del redondel Brasil Zona Rosa.','2024-11-06 03:02:18','2025-02-26 11:47:24'),(17,1,3,40,'col 14','2025-02-21 22:23:24','2025-02-21 22:23:24'),(18,1,3,40,'col 14','2025-02-21 22:27:07','2025-02-21 22:27:07'),(19,1,3,40,'col 14','2025-02-21 22:27:25','2025-02-21 22:27:25'),(20,1,3,40,'col 14 dic','2025-02-25 04:53:27','2025-02-25 04:53:27'),(21,1,6,110,'vijosa','2025-02-25 04:55:07','2025-02-25 04:55:07'),(22,1,3,26,'Sosa','2025-02-25 05:04:10','2025-02-25 05:04:10'),(23,1,5,75,'Av. Jerusalem','2025-02-25 05:05:53','2025-02-25 05:05:53'),(24,1,6,110,'Sivar','2025-02-26 00:20:07','2025-02-26 00:20:07'),(25,1,2,17,'direction','2025-02-26 23:18:22','2025-02-26 23:18:22'),(26,1,1,9,'asdasd','2025-03-01 00:25:12','2025-03-01 00:25:12'),(27,1,3,40,'AV. FLAVIAN MUCCI , BO. MEJICANOS , # 6-5 C, DISTRITO DE SONSONATE, MUNICIPIO DE SONSONATE CENTRO, DEPARTAMENTO DE SONSONATE','2025-06-16 18:52:33','2025-06-16 18:52:33'),(28,1,6,110,'Direccion de prueba','2025-06-16 21:28:57','2025-06-16 21:28:57'),(29,1,3,40,'4 avenida norte casa 12-10','2025-06-16 22:27:31','2025-06-16 22:27:31');
 /*!40000 ALTER TABLE `addresses` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -240,7 +240,7 @@ CREATE TABLE `clients` (
   CONSTRAINT `clients_economicactivity_id_foreign` FOREIGN KEY (`economicactivity_id`) REFERENCES `economicactivities` (`id`) ON DELETE CASCADE,
   CONSTRAINT `clients_phone_id_foreign` FOREIGN KEY (`phone_id`) REFERENCES `phones` (`id`) ON DELETE CASCADE,
   CONSTRAINT `clients_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -249,7 +249,7 @@ CREATE TABLE `clients` (
 
 LOCK TABLES `clients` WRITE;
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
-INSERT INTO `clients` VALUES (9,'Brian','Dagoberto','Ventura','N/A','N/A','N/A','bventura@hotmai.com',NULL,NULL,'N/A','05095294-8','N/A','N','2025-02-15',NULL,'0',NULL,'Seleccione',4,0,20,19,1,NULL,'2025-02-21 22:27:25','2025-02-25 05:02:25'),(10,'Jemima','Isabel','Sorto','Ventura','N/A','N/A','jemimasorto@gmail.com','888888-8',NULL,'N/A','11111111-1','Brian Ventura','N','1997-02-11',NULL,'1',NULL,'PEQU',4,498,21,20,NULL,1,'2025-02-25 04:53:27','2025-02-25 05:03:21'),(11,'N/A','N/A','N/A','N/A','Grupo Nada SV','Grupo Nada S.A de C.V','admin@gruponada.com','101010-1',NULL,'N/A','10101010-1','Don Nada','J','1970-01-01',NULL,'0',NULL,'MED',4,677,22,21,1,NULL,'2025-02-25 04:55:07','2025-02-25 05:02:44'),(12,'Juan','Ariel','Perez','Sosa','N/A','N/A','admin@admin.com','N/A',NULL,'N/A','5555-555555-555-5','N/A','N','2022-02-09','N/A','0',NULL,'Seleccione',4,0,23,22,1,NULL,'2025-02-25 05:04:10','2025-02-25 05:04:10'),(13,'Roco','Isamel','Guarte','Dominguez','N/A','N/A','admin@admin.com','N/A','A12345698','N/A',NULL,'N/A','N','2025-02-13','N/A','0','1','Seleccione',4,0,26,25,1,NULL,'2025-02-26 23:18:22','2025-02-26 23:18:22'),(14,'sdfd','sdf','sdf','dfg','N/A','N/A','admin@admin.com','262313-2',NULL,'N/A','8888-888888-888-8','N/A','N','2025-02-12','N/A','1','0','GRA',4,22,27,26,14,NULL,'2025-03-01 00:25:13','2025-03-01 00:25:13');
+INSERT INTO `clients` VALUES (1,'Brian','Dagoberto','Ventura','Deleon','N/A','N/A','briandagoberto20@hotmail.com','N/A',NULL,'N/A','05095294-8','N/A','N','1994-11-01','N/A','0','0','Seleccione',1,0,5,29,1,NULL,'2025-06-16 22:27:31','2025-06-16 22:27:31');
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -286,7 +286,7 @@ CREATE TABLE `companies` (
   CONSTRAINT `companies_economicactivity_id_foreign` FOREIGN KEY (`economicactivity_id`) REFERENCES `economicactivities` (`id`) ON DELETE CASCADE,
   CONSTRAINT `companies_phone_id_foreign` FOREIGN KEY (`phone_id`) REFERENCES `phones` (`id`) ON DELETE CASCADE,
   CONSTRAINT `companies_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -295,7 +295,7 @@ CREATE TABLE `companies` (
 
 LOCK TABLES `companies` WRITE;
 /*!40000 ALTER TABLE `companies` DISABLE KEYS */;
-INSERT INTO `companies` VALUES (4,'Explorer The Travel Store S.A de C.V','admin@explorertravelsv.com','06141407201064','2924767',NULL,'Servicios profesionales y cientificos NCP','PEQU','02','1740549358_logofondoblanco2.png',602,17,16,NULL,'2024-11-06 03:02:18','2025-02-26 11:55:58');
+INSERT INTO `companies` VALUES (1,'Roma Copies','info@romacopies.com','00994341-7','84357-1','1234567899','SERVICIO DE FOTOCOPIADO Y SIMILARES, EXCEPTO EN IMPRENTAS','OTR','02','1750099953_WhatsApp Image 2025-06-05 at 14.01.08.png',689,3,27,NULL,'2025-06-16 18:52:33','2025-06-17 12:34:28');
 /*!40000 ALTER TABLE `companies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -439,7 +439,7 @@ CREATE TABLE `credits` (
   KEY `credits_user_id_foreign` (`user_id`),
   CONSTRAINT `credits_sale_id_foreign` FOREIGN KEY (`sale_id`) REFERENCES `sales` (`id`) ON DELETE CASCADE,
   CONSTRAINT `credits_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -518,7 +518,7 @@ CREATE TABLE `docs` (
 
 LOCK TABLES `docs` WRITE;
 /*!40000 ALTER TABLE `docs` DISABLE KEYS */;
-INSERT INTO `docs` VALUES (1,'CRF','NA',1,999999,4,1,4,1,'2024-01-23 11:26:42',NULL,NULL,NULL,'2024-01-23 11:27:32','2025-02-28 18:26:01',2,'01',1),(2,'FAC','NA',1,999999,7,1,4,1,'2024-01-23 11:30:10',NULL,NULL,NULL,'2024-01-23 11:30:13','2025-02-28 18:17:57',2,'01',1),(3,'NCR','NA',1,999999,1,1,4,1,'2024-01-23 11:34:37',NULL,NULL,NULL,'2024-01-23 11:34:40','2024-01-23 11:34:41',2,'01',1),(4,'FSE','NA',1,999999,1,1,3,1,'2024-01-23 11:39:57',NULL,NULL,NULL,'2024-01-23 11:40:01','2024-01-23 11:40:02',2,'01',1);
+INSERT INTO `docs` VALUES (1,'CRF','NA',1,999999,1,1,1,1,'2024-01-23 11:26:42',NULL,NULL,NULL,'2024-01-23 11:27:32','2025-02-28 18:26:01',2,'01',1),(2,'FAC','NA',1,999999,1,1,1,1,'2024-01-23 11:30:10',NULL,NULL,NULL,'2024-01-23 11:30:13','2025-02-28 18:17:57',2,'01',1),(3,'NCR','NA',1,999999,1,1,1,1,'2024-01-23 11:34:37',NULL,NULL,NULL,'2024-01-23 11:34:40','2024-01-23 11:34:41',2,'01',1),(4,'FSE','NA',1,999999,1,1,1,1,'2024-01-23 11:39:57',NULL,NULL,NULL,'2024-01-23 11:40:01','2024-01-23 11:40:02',2,'01',1);
 /*!40000 ALTER TABLE `docs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -668,8 +668,40 @@ CREATE TABLE `iva` (
 
 LOCK TABLES `iva` WRITE;
 /*!40000 ALTER TABLE `iva` DISABLE KEYS */;
-INSERT INTO `iva` VALUES (3,'0.13','1.13','0.01','0.01',4,'2025-02-22 13:44:41','2025-02-22 13:44:42');
+INSERT INTO `iva` VALUES (3,'0.13','1.13','0.01','0.01',1,'2025-02-22 13:44:41','2025-02-22 13:44:42');
 /*!40000 ALTER TABLE `iva` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `marcas`
+--
+
+DROP TABLE IF EXISTS `marcas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `marcas` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
+  `user_id` bigint unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `marcas_user_id_foreign` (`user_id`),
+  CONSTRAINT `marcas_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `marcas`
+--
+
+LOCK TABLES `marcas` WRITE;
+/*!40000 ALTER TABLE `marcas` DISABLE KEYS */;
+INSERT INTO `marcas` VALUES (1,'Marca de prueba','Descripcion de prueba',NULL,'active',1,'2025-06-16 16:50:54','2025-06-16 18:27:28'),(2,'Facela','Marca facela de lapices de colores y demas productos de libreria',NULL,'active',1,'2025-06-16 18:30:51','2025-06-16 18:30:51');
+/*!40000 ALTER TABLE `marcas` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -684,7 +716,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=159 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=160 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -693,7 +725,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (132,'2014_10_12_000000_create_users_table',1),(133,'2014_10_12_100000_create_password_resets_table',1),(134,'2019_08_19_000000_create_failed_jobs_table',1),(135,'2019_12_14_000001_create_personal_access_tokens_table',1),(136,'2023_02_10_164655_create_countries_table',1),(137,'2023_02_10_164751_create_departments_table',1),(138,'2023_02_10_164851_create_municipalities_table',1),(139,'2023_02_10_174111_create_economicactivities_table',1),(140,'2023_02_10_192911_create_phones_table',1),(141,'2023_02_10_192927_create_addresses_table',1),(142,'2023_02_11_174427_create_companies_table',1),(143,'2023_02_11_174627_create_clients_table',1),(144,'2023_02_21_192708_create_permission_tables',1),(145,'2023_02_22_180056_create_permission_company',1),(146,'2023_03_08_140140_create_providers_table',1),(147,'2023_03_08_150046_create_products_table',1),(148,'2023_03_17_130335_create_typedocuments_table',1),(149,'2023_03_17_142741_create_sales_table',1),(150,'2023_03_17_142830_create_salesdetails_table',1),(151,'2023_03_17_155030_create_catlists_table',1),(152,'2023_03_17_155345_create_catdetails_table',1),(153,'2023_05_12_162531_create_iva_table',1),(154,'2023_05_16_163409_create_purchase_table',1),(155,'2023_07_05_144002_create_ambientes_table',1),(156,'2023_07_05_145002_create_dte_table',1),(157,'2023_07_05_173916_create_config_table',1),(158,'2023_09_29_165941_create_credits_table',1);
+INSERT INTO `migrations` VALUES (132,'2014_10_12_000000_create_users_table',1),(133,'2014_10_12_100000_create_password_resets_table',1),(134,'2019_08_19_000000_create_failed_jobs_table',1),(135,'2019_12_14_000001_create_personal_access_tokens_table',1),(136,'2023_02_10_164655_create_countries_table',1),(137,'2023_02_10_164751_create_departments_table',1),(138,'2023_02_10_164851_create_municipalities_table',1),(139,'2023_02_10_174111_create_economicactivities_table',1),(140,'2023_02_10_192911_create_phones_table',1),(141,'2023_02_10_192927_create_addresses_table',1),(142,'2023_02_11_174427_create_companies_table',1),(143,'2023_02_11_174627_create_clients_table',1),(144,'2023_02_21_192708_create_permission_tables',1),(145,'2023_02_22_180056_create_permission_company',1),(146,'2023_03_08_140140_create_providers_table',1),(147,'2023_03_08_150046_create_products_table',1),(148,'2023_03_17_130335_create_typedocuments_table',1),(149,'2023_03_17_142741_create_sales_table',1),(150,'2023_03_17_142830_create_salesdetails_table',1),(151,'2023_03_17_155030_create_catlists_table',1),(152,'2023_03_17_155345_create_catdetails_table',1),(153,'2023_05_12_162531_create_iva_table',1),(154,'2023_05_16_163409_create_purchase_table',1),(155,'2023_07_05_144002_create_ambientes_table',1),(156,'2023_07_05_145002_create_dte_table',1),(157,'2023_07_05_173916_create_config_table',1),(158,'2023_09_29_165941_create_credits_table',1),(159,'2025_06_15_004346_create_marcas_table',2);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -826,7 +858,7 @@ CREATE TABLE `permission_company` (
   KEY `permission_company_company_id_foreign` (`company_id`),
   CONSTRAINT `permission_company_company_id_foreign` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`) ON DELETE CASCADE,
   CONSTRAINT `permission_company_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -835,7 +867,7 @@ CREATE TABLE `permission_company` (
 
 LOCK TABLES `permission_company` WRITE;
 /*!40000 ALTER TABLE `permission_company` DISABLE KEYS */;
-INSERT INTO `permission_company` VALUES (7,1,4,1,'2024-11-06 03:20:37','2024-11-06 03:20:37'),(8,13,4,1,'2024-11-06 03:21:18','2024-11-06 03:21:18'),(9,14,4,1,'2024-11-06 03:24:00','2024-11-06 03:24:00');
+INSERT INTO `permission_company` VALUES (10,1,1,1,'2025-06-16 21:27:52','2025-06-16 21:27:52'),(11,13,1,1,'2025-06-16 21:27:58','2025-06-16 21:27:58'),(12,14,1,1,'2025-06-16 21:28:01','2025-06-16 21:28:01');
 /*!40000 ALTER TABLE `permission_company` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -914,7 +946,7 @@ CREATE TABLE `phones` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -923,7 +955,7 @@ CREATE TABLE `phones` (
 
 LOCK TABLES `phones` WRITE;
 /*!40000 ALTER TABLE `phones` DISABLE KEYS */;
-INSERT INTO `phones` VALUES (12,'77000523',NULL,'2024-01-12 02:50:53','2024-01-12 02:50:53'),(13,'7700-0523','2522-3074','2024-01-12 02:57:09','2024-01-12 02:57:09'),(14,'2522-3011',NULL,'2024-01-12 03:00:11','2024-01-12 03:00:11'),(15,'77464638',NULL,'2024-11-06 02:57:27','2024-11-06 02:57:27'),(16,'77464638',NULL,'2024-11-06 02:58:15','2024-11-06 02:58:15'),(17,'77464638',NULL,'2024-11-06 03:02:18','2024-11-06 03:02:18'),(18,'7319-9274','2451-1194','2025-02-21 22:23:24','2025-02-21 22:23:24'),(19,'7319-9274','2451-1194','2025-02-21 22:27:07','2025-02-21 22:27:07'),(20,'7319-9274','2451-1194','2025-02-21 22:27:25','2025-02-21 22:27:25'),(21,'7319-8960','2451-1194','2025-02-25 04:53:27','2025-02-25 05:03:21'),(22,'7310-1010','2410-1010','2025-02-25 04:55:07','2025-02-25 04:55:07'),(23,'5555-5555','5555-5555','2025-02-25 05:04:10','2025-02-25 05:04:10'),(24,'7355-5555','2411-1111','2025-02-25 05:05:53','2025-02-25 05:05:53'),(25,'6666-6666','8888-8888','2025-02-26 00:20:07','2025-02-26 00:20:07'),(26,'9999-9999','8888-8888','2025-02-26 23:18:22','2025-02-26 23:18:22'),(27,'2522-3011','2522-3074','2025-03-01 00:25:12','2025-03-01 00:25:12');
+INSERT INTO `phones` VALUES (1,NULL,NULL,'2025-06-16 16:50:07','2025-06-16 16:50:07'),(2,NULL,NULL,'2025-06-16 18:47:10','2025-06-16 18:47:10'),(3,'24511194',NULL,'2025-06-16 18:52:33','2025-06-16 18:52:33'),(4,'4351-3123','3131-3131','2025-06-16 21:28:57','2025-06-16 21:28:57'),(5,'7319-9274','2451-1194','2025-06-16 22:27:31','2025-06-16 22:27:31');
 /*!40000 ALTER TABLE `phones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -948,12 +980,15 @@ CREATE TABLE `products` (
   `user_id` bigint unsigned DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `marca_id` bigint unsigned DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `products_provider_id_foreign` (`provider_id`),
   KEY `products_user_id_foreign` (`user_id`),
+  KEY `products_marcas_FK` (`marca_id`),
+  CONSTRAINT `products_marcas_FK` FOREIGN KEY (`marca_id`) REFERENCES `marcas` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `products_provider_id_foreign` FOREIGN KEY (`provider_id`) REFERENCES `providers` (`id`) ON DELETE CASCADE,
   CONSTRAINT `products_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -962,7 +997,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (9,NULL,'BOLETO AEREO',1,'gravado','tercero','1.00','boleto aereo','1740438539_IMG_2174.PNG',4,NULL,'2025-02-25 05:09:00','2025-02-25 05:09:00'),(10,NULL,'CARGO ADMINISTRATIVO',1,'gravado','directo','28.25','Fee','1740507642_IMG_2174.PNG',5,NULL,'2025-02-26 00:20:42','2025-02-26 00:20:42');
+INSERT INTO `products` VALUES (2,'7506495000547','ISOPO',1,'gravado','tercero','1.35','producto de prueba','1750118475_WhatsApp Image 2025-06-05 at 14.01.08.png',1,NULL,'2025-06-17 00:01:15','2025-06-17 00:01:15',1),(3,'75062798','ROLON REXONA',1,'gravado','tercero','5.35','prodcuto de prueba','1750119810_WhatsApp Image 2025-06-05 at 14.01.08.png',1,NULL,'2025-06-17 00:23:30','2025-06-17 00:23:30',2);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1019,7 +1054,7 @@ CREATE TABLE `providers` (
   CONSTRAINT `providers_company_id_foreign` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`) ON DELETE CASCADE,
   CONSTRAINT `providers_phone_id_foreign` FOREIGN KEY (`phone_id`) REFERENCES `phones` (`id`) ON DELETE CASCADE,
   CONSTRAINT `providers_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1028,7 +1063,7 @@ CREATE TABLE `providers` (
 
 LOCK TABLES `providers` WRITE;
 /*!40000 ALTER TABLE `providers` DISABLE KEYS */;
-INSERT INTO `providers` VALUES (4,'Grupo Inversiones S.A de C.V','111111-1','55555555-5','admin@allamerican.travel',4,24,23,1,'2025-02-25 05:05:53','2025-02-25 05:05:53'),(5,'Explorer Travel SV','555555-5','5555-555555-555-5','admin@exporertravelsv.com',4,25,24,1,'2025-02-26 00:20:07','2025-02-26 00:20:07');
+INSERT INTO `providers` VALUES (1,'Casita del papel','512313-2','3213-213213-213-2','info@casitadelpapel.com',1,4,28,1,'2025-06-16 21:28:57','2025-06-16 21:28:57');
 /*!40000 ALTER TABLE `providers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1066,7 +1101,7 @@ CREATE TABLE `purchases` (
   CONSTRAINT `purchases_company_id_foreign` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`) ON DELETE CASCADE,
   CONSTRAINT `purchases_provider_id_foreign` FOREIGN KEY (`provider_id`) REFERENCES `providers` (`id`) ON DELETE CASCADE,
   CONSTRAINT `purchases_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1170,7 +1205,7 @@ CREATE TABLE `sales` (
   CONSTRAINT `sales_company_id_foreign` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`) ON DELETE CASCADE,
   CONSTRAINT `sales_typedocument_id_foreign` FOREIGN KEY (`typedocument_id`) REFERENCES `typedocuments` (`id`) ON DELETE CASCADE,
   CONSTRAINT `sales_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1179,7 +1214,7 @@ CREATE TABLE `sales` (
 
 LOCK TABLES `sales` WRITE;
 /*!40000 ALTER TABLE `sales` DISABLE KEYS */;
-INSERT INTO `sales` VALUES (1,NULL,2,'SIN VALOR DEFINIDO',1,0,1224.85,'1','1','2025-02-25',1,6,11,4,'2025-02-26 05:07:53','2025-02-26 09:39:06','{\"emisor\":[],\"documento\":[],\"detalle\":[{\"id_producto\":9,\"descripcion\":\"boleto aereo\",\"cantidad\":1,\"precio_unitario\":\"597.21\",\"descuento\":0,\"no_imponible\":0,\"subtotal\":\"597.21\",\"gravadas\":\"597.21\",\"no_sujetas\":\"0.00\",\"exentas\":\"0.00\",\"iva\":\"77.64\",\"porcentaje_descuento\":0,\"iva_calculado\":\"77.64\",\"renta_retenida\":\"0.00\",\"tipo_item\":1,\"uniMedida\":59},{\"id_producto\":9,\"descripcion\":\"boleto aereo\",\"cantidad\":1,\"precio_unitario\":\"486.73\",\"descuento\":0,\"no_imponible\":0,\"subtotal\":\"486.73\",\"gravadas\":\"486.73\",\"no_sujetas\":\"0.00\",\"exentas\":\"0.00\",\"iva\":\"63.27\",\"porcentaje_descuento\":0,\"iva_calculado\":\"63.27\",\"renta_retenida\":\"0.00\",\"tipo_item\":1,\"uniMedida\":59}],\"totales\":{\"totalNoSuj\":0,\"totalExenta\":0,\"totalGravada\":1083.94,\"subTotalVentas\":1083.94,\"descuNoSuj\":0,\"descuExenta\":0,\"descuGravada\":0,\"porcentajeDescuento\":0,\"totalDescu\":0,\"tributos\":null,\"subTotal\":1083.94,\"ivaPerci1\":0,\"ivaRete1\":0,\"reteRenta\":0,\"montoTotalOperacion\":1083.94,\"totalNoGravado\":0,\"totalPagar\":1224.8500000000001,\"totalLetras\":\"UN MIL DOSCIENTOS VEINTICUATRO DOLARES 85\\/100\",\"saldoFavor\":0,\"condicionOperacion\":\"1\",\"pagos\":null,\"totalIva\":140.91},\"cliente\":[{\"idcliente\":11,\"nit\":\"10101010-1\",\"ncr\":\"101010-1\",\"nombre\":\"Grupo Nada S.A de C.V\",\"codActividad\":\"79110\",\"descActividad\":\"ACTIVIDADES DE AGENCIAS DE VIAJES Y ORGANIZADORES DE VIAJES; ACTIVIDADES DE ASISTENCIA A TURISTAS\",\"nombreComercial\":\"Grupo Nada SV\",\"correo\":\"admin@gruponada.com\",\"departamento\":\"06\",\"municipio\":\"14\",\"direccion\":\"vijosa\",\"telefono\":\"7310-1010\",\"id_tipo_contribuyente\":1,\"id_clasificacion_tributaria\":\"MED\",\"siempre_retiene\":0,\"tipoDocumento\":36,\"numDocumento\":\"10101010-1\",\"tipoDocumentoCliente\":36,\"codPais\":\"9300\",\"nombrePais\":\"El Salvador\",\"siempre_retiene_renta\":0}]}',NULL,NULL,NULL),(2,NULL,1,'SIN VALOR DEFINIDO',1,0,1857.97,'1','1','2025-02-24',1,6,9,4,'2025-02-25 05:10:15','2025-02-26 03:58:48',NULL,NULL,NULL,NULL),(5,NULL,3,'SIN VALOR DEFINIDO',1,0,578.25,'1','1','2025-02-26',1,6,9,4,'2025-02-26 09:53:08','2025-02-26 10:08:20','{\"emisor\":[{\"nit\":\"06141407201064\",\"ncr\":\"2924767\",\"nombre\":\"Explorer The Travel Store S.A de C.V\",\"codActividad\":\"79110\",\"descActividad\":\"ACTIVIDADES DE AGENCIAS DE VIAJES Y ORGANIZADORES DE VIAJES; ACTIVIDADES DE ASISTENCIA A TURISTAS\",\"nombreComercial\":\"Explorer The Travel Store S.A de C.V\",\"tipoEstablecimiento\":\"02\",\"departamento\":\"06\",\"municipio\":\"14\",\"direccion\":\"305 Plza, calle Loma Linda, colonia San Benito, San Salvador. Esto es 60 metros hacia abajo del redondel Brasil Zona Rosa.\",\"telefono\":\"77464638\",\"codEstableMH\":null,\"codEstable\":null,\"codPuntoVentaMH\":null,\"codPuntoVenta\":null,\"correo\":\"admin@explorertravelsv.com\",\"clavePublicaMH\":null,\"clavePrivadaMH\":null,\"claveApiMH\":null}],\"documento\":[{\"id_doc\":5,\"id_tipo_doc\":\"FAC\",\"serie\":\"NA\",\"inicial\":1,\"final\":999999,\"actual\":3,\"estado\":1,\"id_empresa\":4,\"hechopor\":1,\"fechacreacion\":\"2025-02-26 03:53:08\",\"NombreDocumento\":\"FACTURA\",\"NombreUsuario\":\"Brian Ventura\",\"docUser\":\"05095294-8\",\"tipodocumento\":\"01\",\"versionJson\":\"1\",\"url_credencial\":null,\"url_envio\":null,\"url_invalidacion\":null,\"url_contingencia\":null,\"url_firmador\":null,\"tipogeneracion\":null,\"ambiente\":null,\"updated_at\":\"2025-02-26 04:08:20\",\"aparece_ventas\":1}],\"detalle\":[{\"id_producto\":9,\"descripcion\":\"boleto aereo\",\"cantidad\":1,\"precio_unitario\":\"486.73\",\"descuento\":0,\"no_imponible\":0,\"subtotal\":\"486.73\",\"gravadas\":\"486.73\",\"no_sujetas\":\"0.00\",\"exentas\":\"0.00\",\"iva\":\"63.27\",\"porcentaje_descuento\":0,\"iva_calculado\":\"63.27\",\"renta_retenida\":\"0.00\",\"tipo_item\":1,\"uniMedida\":59},{\"id_producto\":10,\"descripcion\":\"Fee\",\"cantidad\":1,\"precio_unitario\":\"25.00\",\"descuento\":0,\"no_imponible\":0,\"subtotal\":\"25.00\",\"gravadas\":\"25.00\",\"no_sujetas\":\"0.00\",\"exentas\":\"0.00\",\"iva\":\"3.25\",\"porcentaje_descuento\":0,\"iva_calculado\":\"3.25\",\"renta_retenida\":\"0.00\",\"tipo_item\":1,\"uniMedida\":59}],\"totales\":{\"totalNoSuj\":0,\"totalExenta\":0,\"totalGravada\":511.73,\"subTotalVentas\":511.73,\"descuNoSuj\":0,\"descuExenta\":0,\"descuGravada\":0,\"porcentajeDescuento\":0,\"totalDescu\":0,\"tributos\":null,\"subTotal\":511.73,\"ivaPerci1\":0,\"ivaRete1\":0,\"reteRenta\":0,\"montoTotalOperacion\":511.73,\"totalNoGravado\":0,\"totalPagar\":578.25,\"totalLetras\":\"QUINIENTOS SETENTA Y OCHO DOLARES 25\\/100\",\"saldoFavor\":0,\"condicionOperacion\":\"1\",\"pagos\":null,\"totalIva\":66.52},\"cliente\":[{\"idcliente\":9,\"nit\":\"05095294-8\",\"ncr\":null,\"nombre\":\"Brian Dagoberto Ventura N\\/A\",\"codActividad\":\"0000\",\"descActividad\":\"SIN CATEGORIA\",\"nombreComercial\":\"Brian Dagoberto Ventura N\\/A\",\"correo\":\"bventura@hotmai.com\",\"departamento\":\"03\",\"municipio\":\"15\",\"direccion\":\"col 14\",\"telefono\":\"7319-9274\",\"id_tipo_contribuyente\":1,\"id_clasificacion_tributaria\":\"Seleccione\",\"siempre_retiene\":0,\"tipoDocumento\":36,\"numDocumento\":\"05095294-8\",\"tipoDocumentoCliente\":36,\"codPais\":\"9300\",\"nombrePais\":\"El Salvador\",\"siempre_retiene_renta\":0}]}',NULL,NULL,NULL),(6,NULL,4,'SIN VALOR DEFINIDO',1,0,1370.97,'1','1','2025-02-26',1,6,12,4,'2025-02-26 20:53:49','2025-02-26 20:54:53','{\"emisor\":[{\"nit\":\"06141407201064\",\"ncr\":\"2924767\",\"nombre\":\"Explorer The Travel Store S.A de C.V\",\"codActividad\":\"60202\",\"descActividad\":\"ACTIVIDADES DE SUSCRIPCI\\u00d3N Y DIFUSI\\u00d3N DE TELEVISI\\u00d3N POR CABLE Y\\/O SUSCRIPCI\\u00d3N\",\"nombreComercial\":\"Explorer The Travel Store S.A de C.V\",\"tipoEstablecimiento\":\"02\",\"departamento\":\"06\",\"municipio\":\"14\",\"direccion\":\"305 Plza, calle Loma Linda, colonia San Benito, San Salvador. Esto es 60 metros hacia abajo del redondel Brasil Zona Rosa.\",\"telefono\":\"77464638\",\"codEstableMH\":null,\"codEstable\":null,\"codPuntoVentaMH\":null,\"codPuntoVenta\":null,\"correo\":\"admin@explorertravelsv.com\",\"clavePublicaMH\":null,\"clavePrivadaMH\":null,\"claveApiMH\":null}],\"documento\":[{\"id_doc\":6,\"id_tipo_doc\":\"FAC\",\"serie\":\"NA\",\"inicial\":1,\"final\":999999,\"actual\":4,\"estado\":1,\"id_empresa\":4,\"hechopor\":1,\"fechacreacion\":\"2025-02-26 14:53:49\",\"NombreDocumento\":\"FACTURA\",\"NombreUsuario\":\"Brian Ventura\",\"docUser\":\"05095294-8\",\"tipodocumento\":\"01\",\"versionJson\":\"1\",\"url_credencial\":null,\"url_envio\":null,\"url_invalidacion\":null,\"url_contingencia\":null,\"url_firmador\":null,\"tipogeneracion\":null,\"ambiente\":null,\"updated_at\":\"2025-02-26 14:54:53\",\"aparece_ventas\":1}],\"detalle\":[{\"id_producto\":9,\"descripcion\":\"BOLETO AEREO XYUTK SAL-AID-SAL\",\"cantidad\":2,\"precio_unitario\":\"594.12\",\"descuento\":0,\"no_imponible\":0,\"subtotal\":\"1188.25\",\"gravadas\":\"1188.25\",\"no_sujetas\":\"0.00\",\"exentas\":\"0.00\",\"iva\":\"154.47\",\"porcentaje_descuento\":0,\"iva_calculado\":\"154.47\",\"renta_retenida\":\"0.00\",\"tipo_item\":1,\"uniMedida\":59},{\"id_producto\":10,\"descripcion\":\"CARGO ADMINISTRATIVO\",\"cantidad\":1,\"precio_unitario\":\"25.00\",\"descuento\":0,\"no_imponible\":0,\"subtotal\":\"25.00\",\"gravadas\":\"25.00\",\"no_sujetas\":\"0.00\",\"exentas\":\"0.00\",\"iva\":\"3.25\",\"porcentaje_descuento\":0,\"iva_calculado\":\"3.25\",\"renta_retenida\":\"0.00\",\"tipo_item\":1,\"uniMedida\":59}],\"totales\":{\"totalNoSuj\":0,\"totalExenta\":0,\"totalGravada\":1213.25,\"subTotalVentas\":1213.25,\"descuNoSuj\":0,\"descuExenta\":0,\"descuGravada\":0,\"porcentajeDescuento\":0,\"totalDescu\":0,\"tributos\":null,\"subTotal\":1213.25,\"ivaPerci1\":0,\"ivaRete1\":0,\"reteRenta\":0,\"montoTotalOperacion\":1213.25,\"totalNoGravado\":0,\"totalPagar\":1370.97,\"totalLetras\":\"UN MIL TRESCIENTOS SETENTA DOLARES 97\\/100\",\"saldoFavor\":0,\"condicionOperacion\":\"1\",\"pagos\":null,\"totalIva\":157.72},\"cliente\":[{\"idcliente\":12,\"nit\":\"5555-555555-555-5\",\"ncr\":\"N\\/A\",\"nombre\":\"Juan Ariel Perez Sosa\",\"codActividad\":\"0000\",\"descActividad\":\"SIN CATEGORIA\",\"nombreComercial\":\"Juan Ariel Perez Sosa\",\"correo\":\"admin@admin.com\",\"departamento\":\"03\",\"municipio\":\"01\",\"direccion\":\"Sosa\",\"telefono\":\"5555-5555\",\"id_tipo_contribuyente\":1,\"id_clasificacion_tributaria\":\"Seleccione\",\"siempre_retiene\":0,\"tipoDocumento\":36,\"numDocumento\":\"5555-555555-555-5\",\"tipoDocumentoCliente\":36,\"codPais\":\"9300\",\"nombrePais\":\"El Salvador\",\"siempre_retiene_renta\":0}]}',NULL,NULL,NULL),(7,NULL,5,'SIN VALOR DEFINIDO',1,0,1450.00,'3','1','2025-02-26',1,6,9,4,'2025-02-26 20:55:24','2025-02-26 20:56:17','{\"emisor\":[{\"nit\":\"06141407201064\",\"ncr\":\"2924767\",\"nombre\":\"Explorer The Travel Store S.A de C.V\",\"codActividad\":\"60202\",\"descActividad\":\"ACTIVIDADES DE SUSCRIPCI\\u00d3N Y DIFUSI\\u00d3N DE TELEVISI\\u00d3N POR CABLE Y\\/O SUSCRIPCI\\u00d3N\",\"nombreComercial\":\"Explorer The Travel Store S.A de C.V\",\"tipoEstablecimiento\":\"02\",\"departamento\":\"06\",\"municipio\":\"14\",\"direccion\":\"305 Plza, calle Loma Linda, colonia San Benito, San Salvador. Esto es 60 metros hacia abajo del redondel Brasil Zona Rosa.\",\"telefono\":\"77464638\",\"codEstableMH\":null,\"codEstable\":null,\"codPuntoVentaMH\":null,\"codPuntoVenta\":null,\"correo\":\"admin@explorertravelsv.com\",\"clavePublicaMH\":null,\"clavePrivadaMH\":null,\"claveApiMH\":null}],\"documento\":[{\"id_doc\":7,\"id_tipo_doc\":\"FAC\",\"serie\":\"NA\",\"inicial\":1,\"final\":999999,\"actual\":5,\"estado\":1,\"id_empresa\":4,\"hechopor\":1,\"fechacreacion\":\"2025-02-26 14:55:24\",\"NombreDocumento\":\"FACTURA\",\"NombreUsuario\":\"Brian Ventura\",\"docUser\":\"05095294-8\",\"tipodocumento\":\"01\",\"versionJson\":\"1\",\"url_credencial\":null,\"url_envio\":null,\"url_invalidacion\":null,\"url_contingencia\":null,\"url_firmador\":null,\"tipogeneracion\":null,\"ambiente\":null,\"updated_at\":\"2025-02-26 14:56:17\",\"aparece_ventas\":1}],\"detalle\":[{\"id_producto\":9,\"descripcion\":\"BOLETO AEREO UYRKN MEX-SAL-MEX\",\"cantidad\":1,\"precio_unitario\":\"1238.94\",\"descuento\":0,\"no_imponible\":0,\"subtotal\":\"1238.94\",\"gravadas\":\"1238.94\",\"no_sujetas\":\"0.00\",\"exentas\":\"0.00\",\"iva\":\"161.06\",\"porcentaje_descuento\":0,\"iva_calculado\":\"161.06\",\"renta_retenida\":\"0.00\",\"tipo_item\":1,\"uniMedida\":59},{\"id_producto\":10,\"descripcion\":\"CARGO ADMINISTRATIVO\",\"cantidad\":1,\"precio_unitario\":\"44.25\",\"descuento\":0,\"no_imponible\":0,\"subtotal\":\"44.25\",\"gravadas\":\"44.25\",\"no_sujetas\":\"0.00\",\"exentas\":\"0.00\",\"iva\":\"5.75\",\"porcentaje_descuento\":0,\"iva_calculado\":\"5.75\",\"renta_retenida\":\"0.00\",\"tipo_item\":1,\"uniMedida\":59}],\"totales\":{\"totalNoSuj\":0,\"totalExenta\":0,\"totalGravada\":1283.19,\"subTotalVentas\":1283.19,\"descuNoSuj\":0,\"descuExenta\":0,\"descuGravada\":0,\"porcentajeDescuento\":0,\"totalDescu\":0,\"tributos\":null,\"subTotal\":1283.19,\"ivaPerci1\":0,\"ivaRete1\":0,\"reteRenta\":0,\"montoTotalOperacion\":1283.19,\"totalNoGravado\":0,\"totalPagar\":1450,\"totalLetras\":\"UN MIL CUATROCIENTOS CINCUENTA DOLARES 00\\/100\",\"saldoFavor\":0,\"condicionOperacion\":\"3\",\"pagos\":null,\"totalIva\":166.81},\"cliente\":[{\"idcliente\":9,\"nit\":\"05095294-8\",\"ncr\":null,\"nombre\":\"Brian Dagoberto Ventura N\\/A\",\"codActividad\":\"0000\",\"descActividad\":\"SIN CATEGORIA\",\"nombreComercial\":\"Brian Dagoberto Ventura N\\/A\",\"correo\":\"bventura@hotmai.com\",\"departamento\":\"03\",\"municipio\":\"15\",\"direccion\":\"col 14\",\"telefono\":\"7319-9274\",\"id_tipo_contribuyente\":1,\"id_clasificacion_tributaria\":\"Seleccione\",\"siempre_retiene\":0,\"tipoDocumento\":36,\"numDocumento\":\"05095294-8\",\"tipoDocumentoCliente\":36,\"codPais\":\"9300\",\"nombrePais\":\"El Salvador\",\"siempre_retiene_renta\":0}]}',NULL,NULL,NULL),(8,NULL,2,'SIN VALOR DEFINIDO',1,0,1243.00,'1','1','2025-02-28',1,3,9,4,'2025-02-28 10:22:03','2025-02-28 11:17:55','{\"emisor\":[{\"nit\":\"06141407201064\",\"ncr\":\"2924767\",\"nombre\":\"Explorer The Travel Store S.A de C.V\",\"codActividad\":\"60202\",\"descActividad\":\"ACTIVIDADES DE SUSCRIPCI\\u00d3N Y DIFUSI\\u00d3N DE TELEVISI\\u00d3N POR CABLE Y\\/O SUSCRIPCI\\u00d3N\",\"nombreComercial\":\"Explorer The Travel Store S.A de C.V\",\"tipoEstablecimiento\":\"02\",\"departamento\":\"06\",\"municipio\":\"14\",\"direccion\":\"305 Plza, calle Loma Linda, colonia San Benito, San Salvador. Esto es 60 metros hacia abajo del redondel Brasil Zona Rosa.\",\"telefono\":\"77464638\",\"codEstableMH\":null,\"codEstable\":null,\"codPuntoVentaMH\":null,\"codPuntoVenta\":null,\"correo\":\"admin@explorertravelsv.com\",\"clavePublicaMH\":null,\"clavePrivadaMH\":null,\"claveApiMH\":null}],\"documento\":[{\"id_doc\":8,\"id_tipo_doc\":\"CRF\",\"serie\":\"NA\",\"inicial\":1,\"final\":999999,\"actual\":2,\"estado\":1,\"id_empresa\":4,\"hechopor\":1,\"fechacreacion\":\"2025-02-28 04:22:03\",\"NombreDocumento\":\"COMPROBANTE DE CREDITO FISCAL\",\"NombreUsuario\":\"Brian Ventura\",\"docUser\":\"05095294-8\",\"tipodocumento\":\"03\",\"versionJson\":\"3\",\"url_credencial\":null,\"url_envio\":null,\"url_invalidacion\":null,\"url_contingencia\":null,\"url_firmador\":null,\"tipogeneracion\":null,\"ambiente\":null,\"updated_at\":\"2025-02-28 05:17:55\",\"aparece_ventas\":1}],\"detalle\":[{\"id_producto\":9,\"descripcion\":\"BOLETO AEREO qeasd adasd\",\"cantidad\":1,\"precio_unitario\":\"600.00\",\"descuento\":0,\"no_imponible\":0,\"subtotal\":\"600.00\",\"gravadas\":\"600.00\",\"no_sujetas\":\"0.00\",\"exentas\":\"0.00\",\"iva\":\"78.00\",\"porcentaje_descuento\":0,\"iva_calculado\":\"78.00\",\"renta_retenida\":\"0.00\",\"tipo_item\":1,\"uniMedida\":59},{\"id_producto\":9,\"descripcion\":\"BOLETO AEREO qeasd adasd\",\"cantidad\":1,\"precio_unitario\":\"500.00\",\"descuento\":0,\"no_imponible\":0,\"subtotal\":\"500.00\",\"gravadas\":\"500.00\",\"no_sujetas\":\"0.00\",\"exentas\":\"0.00\",\"iva\":\"65.00\",\"porcentaje_descuento\":0,\"iva_calculado\":\"65.00\",\"renta_retenida\":\"0.00\",\"tipo_item\":1,\"uniMedida\":59}],\"totales\":{\"totalNoSuj\":0,\"totalExenta\":0,\"totalGravada\":1100,\"subTotalVentas\":1100,\"descuNoSuj\":0,\"descuExenta\":0,\"descuGravada\":0,\"porcentajeDescuento\":0,\"totalDescu\":0,\"tributos\":null,\"subTotal\":1100,\"ivaPerci1\":0,\"ivaRete1\":0,\"reteRenta\":0,\"montoTotalOperacion\":1100,\"totalNoGravado\":0,\"totalPagar\":1243,\"totalLetras\":\"UN MIL DOSCIENTOS CUARENTA Y TRES DOLARES 00\\/100\",\"saldoFavor\":0,\"condicionOperacion\":\"1\",\"pagos\":null,\"totalIva\":143},\"cliente\":[{\"idcliente\":9,\"nit\":\"05095294-8\",\"ncr\":null,\"nombre\":\"Brian Dagoberto Ventura N\\/A\",\"codActividad\":\"0000\",\"descActividad\":\"SIN CATEGORIA\",\"nombreComercial\":\"Brian Dagoberto Ventura N\\/A\",\"correo\":\"bventura@hotmai.com\",\"departamento\":\"03\",\"municipio\":\"15\",\"direccion\":\"col 14\",\"telefono\":\"7319-9274\",\"id_tipo_contribuyente\":1,\"id_clasificacion_tributaria\":\"Seleccione\",\"siempre_retiene\":0,\"tipoDocumento\":36,\"numDocumento\":\"05095294-8\",\"tipoDocumentoCliente\":36,\"codPais\":\"9300\",\"nombrePais\":\"El Salvador\",\"siempre_retiene_renta\":0}]}',NULL,NULL,NULL),(9,NULL,6,'SIN VALOR DEFINIDO',1,0,650.00,'1','1','2025-02-28',14,6,12,4,'2025-03-01 00:17:15','2025-03-01 00:17:57','{\"emisor\":[{\"nit\":\"06141407201064\",\"ncr\":\"2924767\",\"nombre\":\"Explorer The Travel Store S.A de C.V\",\"codActividad\":\"60202\",\"descActividad\":\"ACTIVIDADES DE SUSCRIPCI\\u00d3N Y DIFUSI\\u00d3N DE TELEVISI\\u00d3N POR CABLE Y\\/O SUSCRIPCI\\u00d3N\",\"nombreComercial\":\"Explorer The Travel Store S.A de C.V\",\"tipoEstablecimiento\":\"02\",\"departamento\":\"06\",\"municipio\":\"14\",\"direccion\":\"305 Plza, calle Loma Linda, colonia San Benito, San Salvador. Esto es 60 metros hacia abajo del redondel Brasil Zona Rosa.\",\"telefono\":\"77464638\",\"codEstableMH\":null,\"codEstable\":null,\"codPuntoVentaMH\":null,\"codPuntoVenta\":null,\"correo\":\"admin@explorertravelsv.com\",\"clavePublicaMH\":null,\"clavePrivadaMH\":null,\"claveApiMH\":null}],\"documento\":[{\"id_doc\":9,\"id_tipo_doc\":\"FAC\",\"serie\":\"NA\",\"inicial\":1,\"final\":999999,\"actual\":6,\"estado\":1,\"id_empresa\":4,\"hechopor\":14,\"fechacreacion\":\"2025-02-28 18:17:15\",\"NombreDocumento\":\"FACTURA\",\"NombreUsuario\":\"ventas\",\"docUser\":null,\"tipodocumento\":\"01\",\"versionJson\":\"1\",\"url_credencial\":null,\"url_envio\":null,\"url_invalidacion\":null,\"url_contingencia\":null,\"url_firmador\":null,\"tipogeneracion\":null,\"ambiente\":null,\"updated_at\":\"2025-02-28 18:17:57\",\"aparece_ventas\":1}],\"detalle\":[{\"id_producto\":9,\"descripcion\":\"BOLETO AEREO adas sdfds\",\"cantidad\":1,\"precio_unitario\":\"575.22\",\"descuento\":0,\"no_imponible\":0,\"subtotal\":\"575.22\",\"gravadas\":\"575.22\",\"no_sujetas\":\"0.00\",\"exentas\":\"0.00\",\"iva\":\"74.78\",\"porcentaje_descuento\":0,\"iva_calculado\":\"74.78\",\"renta_retenida\":\"0.00\",\"tipo_item\":1,\"uniMedida\":59}],\"totales\":{\"totalNoSuj\":0,\"totalExenta\":0,\"totalGravada\":575.22,\"subTotalVentas\":575.22,\"descuNoSuj\":0,\"descuExenta\":0,\"descuGravada\":0,\"porcentajeDescuento\":0,\"totalDescu\":0,\"tributos\":null,\"subTotal\":575.22,\"ivaPerci1\":0,\"ivaRete1\":0,\"reteRenta\":0,\"montoTotalOperacion\":575.22,\"totalNoGravado\":0,\"totalPagar\":650,\"totalLetras\":\"SEISCIENTOS CINCUENTA DOLARES 00\\/100\",\"saldoFavor\":0,\"condicionOperacion\":\"1\",\"pagos\":null,\"totalIva\":74.78},\"cliente\":[{\"idcliente\":12,\"nit\":\"5555-555555-555-5\",\"ncr\":\"N\\/A\",\"nombre\":\"Juan Ariel Perez Sosa\",\"codActividad\":\"0000\",\"descActividad\":\"SIN CATEGORIA\",\"nombreComercial\":\"Juan Ariel Perez Sosa\",\"correo\":\"admin@admin.com\",\"departamento\":\"03\",\"municipio\":\"01\",\"direccion\":\"Sosa\",\"telefono\":\"5555-5555\",\"id_tipo_contribuyente\":1,\"id_clasificacion_tributaria\":\"Seleccione\",\"siempre_retiene\":0,\"tipoDocumento\":36,\"numDocumento\":\"5555-555555-555-5\",\"tipoDocumentoCliente\":36,\"codPais\":\"9300\",\"nombrePais\":\"El Salvador\",\"siempre_retiene_renta\":0}]}',NULL,NULL,NULL),(10,NULL,3,'SIN VALOR DEFINIDO',1,0,1695.00,'3','1','2025-02-28',14,3,14,4,'2025-03-01 00:25:30','2025-03-01 00:26:01','{\"emisor\":[{\"nit\":\"06141407201064\",\"ncr\":\"2924767\",\"nombre\":\"Explorer The Travel Store S.A de C.V\",\"codActividad\":\"60202\",\"descActividad\":\"ACTIVIDADES DE SUSCRIPCI\\u00d3N Y DIFUSI\\u00d3N DE TELEVISI\\u00d3N POR CABLE Y\\/O SUSCRIPCI\\u00d3N\",\"nombreComercial\":\"Explorer The Travel Store S.A de C.V\",\"tipoEstablecimiento\":\"02\",\"departamento\":\"06\",\"municipio\":\"14\",\"direccion\":\"305 Plza, calle Loma Linda, colonia San Benito, San Salvador. Esto es 60 metros hacia abajo del redondel Brasil Zona Rosa.\",\"telefono\":\"77464638\",\"codEstableMH\":null,\"codEstable\":null,\"codPuntoVentaMH\":null,\"codPuntoVenta\":null,\"correo\":\"admin@explorertravelsv.com\",\"clavePublicaMH\":null,\"clavePrivadaMH\":null,\"claveApiMH\":null}],\"documento\":[{\"id_doc\":10,\"id_tipo_doc\":\"CRF\",\"serie\":\"NA\",\"inicial\":1,\"final\":999999,\"actual\":3,\"estado\":1,\"id_empresa\":4,\"hechopor\":14,\"fechacreacion\":\"2025-02-28 18:25:30\",\"NombreDocumento\":\"COMPROBANTE DE CREDITO FISCAL\",\"NombreUsuario\":\"ventas\",\"docUser\":null,\"tipodocumento\":\"03\",\"versionJson\":\"3\",\"url_credencial\":null,\"url_envio\":null,\"url_invalidacion\":null,\"url_contingencia\":null,\"url_firmador\":null,\"tipogeneracion\":null,\"ambiente\":null,\"updated_at\":\"2025-02-28 18:26:01\",\"aparece_ventas\":1}],\"detalle\":[{\"id_producto\":9,\"descripcion\":\"BOLETO AEREO dfgdf dfgfd\",\"cantidad\":1,\"precio_unitario\":\"1500.00\",\"descuento\":0,\"no_imponible\":0,\"subtotal\":\"1500.00\",\"gravadas\":\"1500.00\",\"no_sujetas\":\"0.00\",\"exentas\":\"0.00\",\"iva\":\"195.00\",\"porcentaje_descuento\":0,\"iva_calculado\":\"195.00\",\"renta_retenida\":\"0.00\",\"tipo_item\":1,\"uniMedida\":59}],\"totales\":{\"totalNoSuj\":0,\"totalExenta\":0,\"totalGravada\":1500,\"subTotalVentas\":1500,\"descuNoSuj\":0,\"descuExenta\":0,\"descuGravada\":0,\"porcentajeDescuento\":0,\"totalDescu\":0,\"tributos\":null,\"subTotal\":1500,\"ivaPerci1\":0,\"ivaRete1\":0,\"reteRenta\":0,\"montoTotalOperacion\":1500,\"totalNoGravado\":0,\"totalPagar\":1695,\"totalLetras\":\"UN MIL SEISCIENTOS NOVENTA Y CINCO DOLARES 00\\/100\",\"saldoFavor\":0,\"condicionOperacion\":\"3\",\"pagos\":null,\"totalIva\":195},\"cliente\":[{\"idcliente\":14,\"nit\":\"8888-888888-888-8\",\"ncr\":\"262313-2\",\"nombre\":\"sdfd sdf sdf dfg\",\"codActividad\":\"1252\",\"descActividad\":\"CULTIVO DE OTROS FRUTOS  Y NUECES DE \\u00c1RBOLES Y ARBUSTOS\",\"nombreComercial\":\"sdfd sdf sdf dfg\",\"correo\":\"admin@admin.com\",\"departamento\":\"01\",\"municipio\":\"09\",\"direccion\":\"asdasd\",\"telefono\":\"2522-3011\",\"id_tipo_contribuyente\":1,\"id_clasificacion_tributaria\":\"GRA\",\"siempre_retiene\":0,\"tipoDocumento\":36,\"numDocumento\":\"8888-888888-888-8\",\"tipoDocumentoCliente\":36,\"codPais\":\"9300\",\"nombrePais\":\"El Salvador\",\"siempre_retiene_renta\":0}]}',NULL,NULL,NULL);
+INSERT INTO `sales` VALUES (1,NULL,NULL,'Clientes varios',1,0,NULL,'1','2','2025-06-16',1,6,1,1,'2025-06-16 23:29:27','2025-06-16 23:33:07',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `sales` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1223,7 +1258,7 @@ CREATE TABLE `salesdetails` (
   CONSTRAINT `salesdetails_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
   CONSTRAINT `salesdetails_sale_id_foreign` FOREIGN KEY (`sale_id`) REFERENCES `sales` (`id`) ON DELETE CASCADE,
   CONSTRAINT `salesdetails_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=520 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1232,7 +1267,7 @@ CREATE TABLE `salesdetails` (
 
 LOCK TABLES `salesdetails` WRITE;
 /*!40000 ALTER TABLE `salesdetails` DISABLE KEYS */;
-INSERT INTO `salesdetails` VALUES (505,2,9,2,1169.00,584.50,0.00,0.00,0.00,151.97,0.00,25.00,3.25,'XGTSY','SAL-MEX-SAL',1956,17,'Referido por cliente',1,'2025-02-26 03:40:45','2025-02-26 03:40:45'),(507,2,9,1,0.00,537.00,537.00,0.00,0.00,0.00,0.00,0.00,0.00,'HYUYS','MEX-SAL-MEX',288,21,'Correos Masivos',1,'2025-02-26 03:44:36','2025-02-26 03:44:36'),(508,1,9,1,597.21,597.21,0.00,0.00,0.00,77.64,0.00,25.00,3.25,'adas','adas',3,2,'Instagram',1,'2025-02-26 05:10:36','2025-02-26 05:10:36'),(509,1,9,1,486.73,486.73,0.00,0.00,0.00,63.27,0.00,44.25,5.75,'adasda','dfgdfgdf',3,3,'Correos Masivos',1,'2025-02-26 09:37:55','2025-02-26 09:37:55'),(510,5,9,1,486.73,486.73,0.00,0.00,0.00,63.27,0.00,44.25,5.75,'asd','sdfsd',3,16,'Correos Masivos',1,'2025-02-26 09:53:50','2025-02-26 09:53:50'),(511,5,10,1,25.00,25.00,0.00,0.00,0.00,3.25,0.00,0.00,0.00,'null','null',0,0,'null',1,'2025-02-26 10:07:38','2025-02-26 10:07:38'),(512,6,9,2,1188.25,594.12,0.00,0.00,0.00,154.47,0.00,44.25,5.75,'XYUTK','SAL-AID-SAL',14,10,'Referido por cliente',1,'2025-02-26 20:54:24','2025-02-26 20:54:24'),(513,6,10,1,25.00,25.00,0.00,0.00,0.00,3.25,0.00,0.00,0.00,'null','null',0,0,'null',1,'2025-02-26 20:54:41','2025-02-26 20:54:41'),(514,7,9,1,1238.94,1238.94,0.00,0.00,0.00,161.06,0.00,0.00,0.00,'UYRKN','MEX-SAL-MEX',23,22,'Whatsapp',1,'2025-02-26 20:56:05','2025-02-26 20:56:05'),(515,7,10,1,44.25,44.25,0.00,0.00,0.00,5.75,0.00,0.00,0.00,'null','null',0,0,'null',1,'2025-02-26 20:56:12','2025-02-26 20:56:12'),(516,8,9,1,600.00,600.00,0.00,0.00,0.00,78.00,0.00,0.00,0.00,'qeasd','adasd',2,1,'Instagram',1,'2025-02-28 11:02:07','2025-02-28 11:02:07'),(517,8,9,1,500.00,500.00,0.00,0.00,0.00,65.00,0.00,0.00,0.00,'qeasd','adasd',1,2,'Correos Masivos',1,'2025-02-28 11:13:22','2025-02-28 11:13:22'),(518,9,9,1,575.22,575.22,0.00,0.00,0.00,74.78,0.00,44.25,5.75,'adas','sdfds',7,11,'Correos Masivos',14,'2025-03-01 00:17:51','2025-03-01 00:17:51'),(519,10,9,1,1500.00,1500.00,0.00,0.00,0.00,195.00,0.00,0.00,0.00,'dfgdf','dfgfd',9,12,'Correos Masivos',14,'2025-03-01 00:25:56','2025-03-01 00:25:56');
+INSERT INTO `salesdetails` VALUES (4,1,2,1,1.20,1.20,0.00,0.00,0.00,0.16,0.00,0.00,0.00,'null','null',0,0,'null',1,'2025-06-17 00:23:44','2025-06-17 00:23:44'),(5,1,3,1,4.74,4.74,0.00,0.00,0.00,0.62,0.00,0.00,0.00,'null','null',0,0,'null',1,'2025-06-17 00:24:05','2025-06-17 00:24:05');
 /*!40000 ALTER TABLE `salesdetails` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1307,7 +1342,7 @@ INSERT INTO `users` VALUES (1,'Brian Ventura','bventura@admin.com','05095294-8',
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'explorer'
+-- Dumping routines for database 'romacopies'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -1319,4 +1354,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-11  0:31:20
+-- Dump completed on 2025-06-17 14:15:57

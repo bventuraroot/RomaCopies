@@ -15,4 +15,9 @@ class Provider extends Model
         'nit',
         'email'
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

@@ -6,6 +6,7 @@
 @extends('layouts/layoutMaster')
 
 @section('vendor-style')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css') }}">
@@ -40,87 +41,109 @@
     <script src="{{ asset('assets/js/app-product-list.js') }}"></script>
     <script src="{{ asset('assets/js/forms-product.js') }}"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const codeInput = document.getElementById('code');
-            const codeInputEdit = document.getElementById('codeedit');
-            const barcodeDiv = document.getElementById('barcode');
-            const barcodeDivEdit = document.getElementById('barcodeedit');
+        $(document).ready(function() {
+            var codeInput = $('#code');
+            var codeInputEdit = $('#codeedit');
+            var barcodeDiv = $('#barcode');
+            var barcodeDivEdit = $('#barcodeedit');
 
-            if (!codeInput || !barcodeDiv) {
+            if (!codeInput.length || !barcodeDiv.length) {
                 console.error('No se encontraron los elementos necesarios');
                 return;
             }
 
-            codeInput.addEventListener('input', function(e) {
-                const code = e.target.value;
+            codeInput.on('input', function() {
+                var code = $(this).val();
                 if (!code) {
-                    barcodeDiv.innerHTML = '';
+                    barcodeDiv.html('');
                     return;
                 }
-                const url = `{{ url('barcode') }}/${code}`;
-                fetch(url)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Error al generar el código de barras');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
+                var url = '{{ url("barcode") }}/' + code;
+                $.ajax({
+                    url: url,
+                    method: 'GET',
+                    success: function(data) {
                         if (data.error) {
-                            throw new Error(data.error);
+                            barcodeDiv.html('<div class="alert alert-danger">Error al generar el código de barras</div>');
+                        } else {
+                            barcodeDiv.html(data.html);
                         }
-                        barcodeDiv.innerHTML = data.html;
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        barcodeDiv.innerHTML = '<div class="alert alert-danger">Error al generar el código de barras</div>';
-                    });
+                    },
+                    error: function() {
+                        barcodeDiv.html('<div class="alert alert-danger">Error al generar el código de barras</div>');
+                    }
+                });
             });
 
-            codeInputEdit.addEventListener('input', function(e) {
-                const code = e.target.value;
+            codeInputEdit.on('input', function() {
+                var code = $(this).val();
                 if (!code) {
-                    barcodeDivEdit.innerHTML = '';
+                    barcodeDivEdit.html('');
                     return;
                 }
-                const url = `{{ url('barcode') }}/${code}`;
-                fetch(url)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Error al generar el código de barras');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
+                var url = '{{ url("barcode") }}/' + code;
+                $.ajax({
+                    url: url,
+                    method: 'GET',
+                    success: function(data) {
                         if (data.error) {
-                            throw new Error(data.error);
+                            barcodeDivEdit.html('<div class="alert alert-danger">Error al generar el código de barras</div>');
+                        } else {
+                            barcodeDivEdit.html(data.html);
                         }
-                        barcodeDivEdit.innerHTML = data.html;
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        barcodeDivEdit.innerHTML = '<div class="alert alert-danger">Error al generar el código de barras</div>';
-                    });
+                    },
+                    error: function() {
+                        barcodeDivEdit.html('<div class="alert alert-danger">Error al generar el código de barras</div>');
+                    }
+                });
+            });
+
+            $('#name').on('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                }
+            });
+            $('#nameedit').on('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                }
+            });
+            $('#codeedit').on('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                }
             });
         });
 
-        $(document).ready(function() {
-    $('#name').on('keydown', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
+        var select2marcaredit = $('.select2marcaredit');
+
+        if (select2marcaredit.length) {
+            var $this = select2marcaredit;
+            $this.wrap('<div class="position-relative"></div>').select2({
+                placeholder: 'Seleccionar Marca',
+                dropdownParent: $this.parent()
+            });
         }
-    });
-    $('#nameedit').on('keydown', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
+
+        var select2category = $('.select2category');
+
+        if (select2category.length) {
+            var $this = select2category;
+            $this.wrap('<div class="position-relative"></div>').select2({
+                placeholder: 'Seleccionar Categoría',
+                dropdownParent: $this.parent()
+            });
         }
-    });
-    $('#codeedit').on('keydown', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
+
+        var select2categoryedit = $('.select2categoryedit');
+
+        if (select2categoryedit.length) {
+            var $this = select2categoryedit;
+            $this.wrap('<div class="position-relative"></div>').select2({
+                placeholder: 'Seleccionar Categoría',
+                dropdownParent: $this.parent()
+            });
         }
-    });
-});
     </script>
 @endsection
 
@@ -146,6 +169,7 @@
                         <th>PROVEEDOR</th>
                         <th>C. FISCAL</th>
                         <th>TIPO</th>
+                        <th>CATEGORIA</th>
                         <th>ESTADO</th>
                         <th>DESCRIPCION</th>
                         <th>ACCIONES</th>
@@ -163,7 +187,14 @@
                                 <td>{{ $product->nameprovider }}</td>
                                 <td>{{ $product->cfiscal }}</td>
                                 <td>{{ $product->type }}</td>
-                                <td>{{ $product->state }}</td>
+                                <td>{{ $product->category ?? 'Sin categoría' }}</td>
+                                <td>
+                                    @if($product->state == 1)
+                                        <span class="badge bg-label-success">Activo</span>
+                                    @else
+                                        <span class="badge bg-label-danger">Inactivo</span>
+                                    @endif
+                                </td>
                                 <td>{{ $product->description }}</td>
                                 <td><div class="d-flex align-items-center">
                                     <a href="javascript: editproduct({{ $product->id }});" class="dropdown-item"><i
@@ -171,9 +202,15 @@
                                     <a href="javascript:;" class="text-body dropdown-toggle hide-arrow"
                                         data-bs-toggle="dropdown"><i class="mx-1 ti ti-dots-vertical ti-sm"></i></a>
                                     <div class="m-0 dropdown-menu dropdown-menu-end">
+                                        @if($product->state == 1)
+                                            <a href="javascript:toggleState({{ $product->id }}, 0);" class="dropdown-item"><i
+                                                class="ti ti-toggle-left ti-sm me-2"></i>Desactivar</a>
+                                        @else
+                                            <a href="javascript:toggleState({{ $product->id }}, 1);" class="dropdown-item"><i
+                                                class="ti ti-toggle-right ti-sm me-2"></i>Activar</a>
+                                        @endif
                                         <a href="javascript:deleteproduct({{ $product->id }});" class="dropdown-item"><i
                                                 class="ti ti-eraser ti-sm me-2"></i>Eliminar</a>
-
                                     </div>
                                 </div></td>
                             </tr>
@@ -185,6 +222,7 @@
                                     <td></td>
                                     <td></td>
                                     <td>No hay datos</td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -235,6 +273,29 @@
                 <label for="provider" class="form-label">Proveedor</label>
                 <select class="select2provider form-select" id="provider" name="provider"
                     aria-label="Seleccionar opcion">
+                </select>
+            </div>
+            <div class="mb-3 col-12">
+                <label for="category" class="form-label">Categoría</label>
+                <select class="select2category form-select" id="category" name="category" aria-label="Seleccionar categoría">
+                    <option value="">Seleccione una categoría</option>
+                    <option value="Papeleria">Papelería</option>
+                    <option value="Cuadernos y Libretas">Cuadernos y Libretas</option>
+                    <option value="Lapices y Boligrafos">Lápices y Bolígrafos</option>
+                    <option value="Marcadores y Resaltadores">Marcadores y Resaltadores</option>
+                    <option value="Tijeras y Cutter">Tijeras y Cutter</option>
+                    <option value="Pegamentos y Adhesivos">Pegamentos y Adhesivos</option>
+                    <option value="Reglas y Escuadras">Reglas y Escuadras</option>
+                    <option value="Compases y Transportadores">Compases y Transportadores</option>
+                    <option value="Cartulinas y Papeles">Cartulinas y Papeles</option>
+                    <option value="Carpetas y Organizadores">Carpetas y Organizadores</option>
+                    <option value="Calculadoras">Calculadoras</option>
+                    <option value="Mochilas y Loncheras">Mochilas y Loncheras</option>
+                    <option value="Arte y Manualidades">Arte y Manualidades</option>
+                    <option value="Juguetes Educativos">Juguetes Educativos</option>
+                    <option value="Utiles de Oficina">Útiles de Oficina</option>
+                    <option value="Material de Limpieza">Material de Limpieza</option>
+                    <option value="Otros">Otros</option>
                 </select>
             </div>
             <div class="mb-3 col-6">
@@ -312,6 +373,29 @@
                 <label for="provideredit" class="form-label">Proveedor</label>
                 <select class="select2provideredit form-select" id="provideredit" name="provideredit"
                     aria-label="Seleccionar opcion">
+                </select>
+            </div>
+            <div class="mb-3 col-12">
+                <label for="categoryedit" class="form-label">Categoría</label>
+                <select class="select2categoryedit form-select" id="categoryedit" name="categoryedit" aria-label="Seleccionar categoría">
+                    <option value="">Seleccione una categoría</option>
+                    <option value="Papeleria">Papelería</option>
+                    <option value="Cuadernos y Libretas">Cuadernos y Libretas</option>
+                    <option value="Lapices y Boligrafos">Lápices y Bolígrafos</option>
+                    <option value="Marcadores y Resaltadores">Marcadores y Resaltadores</option>
+                    <option value="Tijeras y Cutter">Tijeras y Cutter</option>
+                    <option value="Pegamentos y Adhesivos">Pegamentos y Adhesivos</option>
+                    <option value="Reglas y Escuadras">Reglas y Escuadras</option>
+                    <option value="Compases y Transportadores">Compases y Transportadores</option>
+                    <option value="Cartulinas y Papeles">Cartulinas y Papeles</option>
+                    <option value="Carpetas y Organizadores">Carpetas y Organizadores</option>
+                    <option value="Calculadoras">Calculadoras</option>
+                    <option value="Mochilas y Loncheras">Mochilas y Loncheras</option>
+                    <option value="Arte y Manualidades">Arte y Manualidades</option>
+                    <option value="Juguetes Educativos">Juguetes Educativos</option>
+                    <option value="Utiles de Oficina">Útiles de Oficina</option>
+                    <option value="Material de Limpieza">Material de Limpieza</option>
+                    <option value="Otros">Otros</option>
                 </select>
             </div>
             <div class="mb-3 col-6">

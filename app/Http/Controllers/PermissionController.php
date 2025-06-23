@@ -130,6 +130,12 @@ class PermissionController extends Controller
                 "slug" => "sale.index"
             ],
             [
+                "url" => "/inventory",
+                "name" => "Inventario",
+                "icon" => "menu-icon fa-solid fa-boxes-packing",
+                "slug" => "inventory.index"
+            ],
+            [
                 "url" => "/purchase/index",
                 "name" => "Compras",
                 "icon" => "menu-icon fa-solid fa-truck",

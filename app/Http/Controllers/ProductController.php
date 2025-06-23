@@ -82,6 +82,7 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->marca_id = $request->marca;
         $product->provider_id = $request->provider;
+        $product->category = $request->category;
         $product->description = ($request->description=="" ? "N/A":$request->description);
         $nombre = "none.jpg";
         if($request->hasFile("image")){
@@ -131,6 +132,7 @@ class ProductController extends Controller
         $product->name = $request->nameedit;
         $product->cfiscal = $request->cfiscaledit;
         $product->type = $request->typeedit;
+        $product->category = $request->categoryedit;
         //$product->price = $request->priceedit;
         $product->marca_id = $request->marcaredit;
         $product->provider_id = $request->provideredit;
@@ -166,5 +168,22 @@ class ProductController extends Controller
          return response()->json(array(
              "res" => "1"
          ));
+    }
+
+    public function toggleState(Request $request, $id)
+    {
+        try {
+            $product = Product::findOrFail(base64_decode($id));
+            $product->state = $request->state;
+            $product->save();
+
+            return response()->json(array(
+                "res" => "1"
+            ));
+        } catch (\Exception $e) {
+            return response()->json(array(
+                "res" => "0"
+            ));
+        }
     }
 }

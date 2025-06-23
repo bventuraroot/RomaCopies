@@ -66,6 +66,9 @@ $(document).ready(function (){
                     if(index=='type'){
                         $("#typeedit option[value='"+ value  +"']").attr("selected", true);
                     }
+                    if(index=='category'){
+                        $("#categoryedit option[value='"+ value  +"']").attr("selected", true);
+                    }
 
               });
               $("#updateProductModal").modal("show");
@@ -73,8 +76,71 @@ $(document).ready(function (){
     });
    }
 
+   function toggleState(id, newState){
+    var stateText = newState == 1 ? 'activar' : 'desactivar';
+    var swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+      })
+
+      swalWithBootstrapButtons.fire({
+        title: '¿Cambiar estado?',
+        text: '¿Está seguro que desea ' + stateText + ' este producto?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Si, ' + stateText + '!',
+        cancelButtonText: 'No, Cancelar!',
+        reverseButtons: true
+      }).then(function(result) {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: "toggleState/"+btoa(id),
+                method: "POST",
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    state: newState
+                },
+                success: function(response){
+                        if(response.res==1){
+                            Swal.fire({
+                                title: 'Estado actualizado',
+                                text: 'Producto ' + stateText + 'do correctamente',
+                                icon: 'success',
+                                confirmButtonText: 'Ok'
+                              }).then(function(result) {
+                                /* Read more about isConfirmed, isDenied below */
+                                if (result.isConfirmed) {
+                                  location.reload();
+                                }
+                              })
+
+                        }else if(response.res==0){
+                            swalWithBootstrapButtons.fire(
+                                'Problemas!',
+                                'Algo sucedió y no pudo cambiar el estado del producto, favor comunicarse con el administrador.',
+                                'error'
+                              )
+                        }
+            }
+            });
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelado',
+            'No hemos hecho ninguna acción :)',
+            'info'
+          )
+        }
+      })
+   }
+
    function deleteproduct(id){
-    const swalWithBootstrapButtons = Swal.mixin({
+    var swalWithBootstrapButtons = Swal.mixin({
         customClass: {
           confirmButton: 'btn btn-success',
           cancelButton: 'btn btn-danger'
@@ -90,7 +156,7 @@ $(document).ready(function (){
         confirmButtonText: 'Si, Eliminarlo!',
         cancelButtonText: 'No, Cancelar!',
         reverseButtons: true
-      }).then((result) => {
+      }).then(function(result) {
         if (result.isConfirmed) {
             $.ajax({
                 url: "destroy/"+btoa(id),
@@ -101,7 +167,7 @@ $(document).ready(function (){
                                 title: 'Eliminado',
                                 icon: 'success',
                                 confirmButtonText: 'Ok'
-                              }).then((result) => {
+                              }).then(function(result) {
                                 /* Read more about isConfirmed, isDenied below */
                                 if (result.isConfirmed) {
                                   location.reload();
@@ -111,7 +177,7 @@ $(document).ready(function (){
                         }else if(response.res==0){
                             swalWithBootstrapButtons.fire(
                                 'Problemas!',
-                                'Algo sucedio y no pudo eliminar el cliente, favor comunicarse con el administrador.',
+                                'Algo sucedió y no pudo eliminar el cliente, favor comunicarse con el administrador.',
                                 'success'
                               )
                         }
@@ -123,7 +189,7 @@ $(document).ready(function (){
         ) {
           swalWithBootstrapButtons.fire(
             'Cancelado',
-            'No hemos hecho ninguna accion :)',
+            'No hemos hecho ninguna acción :)',
             'error'
           )
         }
