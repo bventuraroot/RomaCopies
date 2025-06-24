@@ -94,6 +94,7 @@ Route::group(['prefix' => 'user', 'as' => 'user.'], function(){
     Route::patch('update', [UserController::class, 'update'])->name('update');
     Route::get('changedtatus/{user}/status/{status}', [UserController::class, 'changedtatus'])->name('changedtatus');
     Route::get('destroy/{user}', [UserController::class, 'destroy'])->name('destroy');
+    Route::post('request-password-reset/{id}', [UserController::class, 'requestPasswordReset'])->name('request-password-reset');
 
     });
 

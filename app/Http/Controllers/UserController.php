@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\PermissionCompany;
 use App\Models\User;
-use File;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rules\Exists;
+use Illuminate\Support\Facades\Password;
 
 class UserController extends Controller
 {
@@ -212,5 +213,23 @@ class UserController extends Controller
         return response()->json(array(
             "res" => "1"
         ));
+    }
+
+    /**
+     * Solicita el envío de un enlace de restablecimiento de contraseña para un usuario.
+     *
+     * @param  string  $id (base64)
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function requestPasswordReset($id)
+    {
+        $user = User::findOrFail(base64_decode($id));
+        $status = Password::sendResetLink(['email' => $user->email]);
+
+        if ($status === Password::RESET_LINK_SENT) {
+            return response()->json(['message' => 'Correo de restablecimiento enviado.']);
+        } else {
+            return response()->json(['message' => 'No se pudo enviar el correo.'], 500);
+        }
     }
 }

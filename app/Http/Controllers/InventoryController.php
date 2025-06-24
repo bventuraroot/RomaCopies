@@ -244,36 +244,26 @@ class InventoryController extends Controller
             $query = Product::with(['provider'])
                 ->select('products.*', 'providers.razonsocial as provider_name', 'inventory.id as inventory_id', 'inventory.quantity', 'inventory.minimum_stock', 'inventory.location', 'inventory.active')
                 ->join('providers', 'products.provider_id', '=', 'providers.id')
-                ->join('inventory', 'products.id', '=', 'inventory.product_id');
+                ->join('inventory', 'products.id', '=', 'inventory.product_id')
+                ->get();
 
-            return DataTables::of($query)
-                ->addColumn('id', function($product) {
-                    return $product->inventory_id;
-                })
-                ->addColumn('sku', function($product) {
-                    return $product->code ?? '';
-                })
-                ->addColumn('quantity', function($product) {
-                    return $product->quantity ?? 0;
-                })
-                ->addColumn('minimum_stock', function($product) {
-                    return $product->minimum_stock ?? 0;
-                })
-                ->addColumn('location', function($product) {
-                    return $product->location ?? '';
-                })
-                ->addColumn('category', function($product) {
-                    return $product->type ?? '';
-                })
-                ->addColumn('nameprovider', function($product) {
-                    return $product->provider_name ?? '';
-                })
-                ->addColumn('active', function($product) {
-                    return $product->active ?? true;
-                })
-                ->addIndexColumn()
-                ->make(true);
+            $data = $query->map(function($product) {
+                return [
+                    'id' => $product->inventory_id,
+                    'code' => $product->code ?? '',
+                    'name' => $product->name ?? '',
+                    'description' => $product->description ?? '',
+                    'price' => $product->price ?? 0,
+                    'type' => $product->type ?? '',
+                    'provider_name' => $product->provider_name ?? '',
+                    'quantity' => $product->quantity ?? 0,
+                    'minimum_stock' => $product->minimum_stock ?? 0,
+                    'location' => $product->location ?? '',
+                    'active' => $product->active ?? true,
+                ];
+            });
 
+            return response()->json(['data' => $data]);
         } catch (\Exception $e) {
             Log::error('Error en método list:', ['error' => $e->getMessage()]);
             return response()->json(['error' => 'Error al cargar los datos'], 500);

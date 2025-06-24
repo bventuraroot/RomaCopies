@@ -4,6 +4,13 @@
 
 'use strict';
 
+// Configuración global para incluir el token CSRF en todas las peticiones AJAX
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
 // Datatable (jquery)
 $(function () {
   let borderColor, bodyBg, headingColor;
@@ -146,7 +153,7 @@ $(function () {
             }
 
             return (
-              '<span class="badge ' +
+              '<span class="badge' +
               statusObj[status].class +
               '" text-capitalized>' +
               statusObj[status].title +
@@ -215,20 +222,12 @@ $(function () {
             }
             return (
               '<div class="d-flex align-items-center">' +
-              '<a href="javascript:editUsers('+
-              $id
-              +');" class="text-body"><i class="ti ti-edit ti-sm me-2"></i></a>' +
-              '<a href="javascript:deleteUsers('+
-              $id
-              +');" class="text-body delete-record"><i class="ti ti-trash ti-sm mx-2"></i></a>' +
-              '<a href="javascript:;" class="text-body dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="ti ti-dots-vertical ti-sm mx-1"></i></a>' +
-              '<div class="dropdown-menu dropdown-menu-end m-4">' +
-              '<a href="javascript:suspendUsers('+
-              $id + ','+ "'" + $state + "'," + "'" + estado + "'"
-              +');" class="dropdown-item">'+
-              estado
-              +'</a>' +
-              '<a href="javascript:changepass();" class="dropdown-item">Solicitar cambio de contraseña</a>' +
+              '<a href="javascript:editUsers('+ $id +');" class="text-body"><i class="ti ti-edit ti-sm me-2"></i></a>' +
+              '<a href="javascript:deleteUsers('+ $id +');" class="text-body delete-record"><i class="mx-2 ti ti-trash ti-sm"></i></a>' +
+              '<a href="javascript:;" class="text-body dropdown-toggle hide-arrow" data-bs-toggle="dropdown"><i class="mx-1 ti ti-dots-vertical ti-sm"></i></a>' +
+              '<div class="m-4 dropdown-menu dropdown-menu-end">' +
+              '<a href="javascript:suspendUsers('+ $id + ','+ "'" + $state + "'," + "'" + estado + "'" +');" class="dropdown-item">'+ estado +'</a>' +
+              '<a href="javascript:changepass(' + $id + ');" class="dropdown-item">Solicitar cambio de contraseña</a>' +
               '</div>' +
               '</div>'
             );
@@ -824,7 +823,7 @@ function deleteUsers(id){
 
    }
 
-   function changepass(){
+   function changepass(id){
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
           confirmButton: 'btn btn-success',
@@ -843,13 +842,26 @@ function deleteUsers(id){
         reverseButtons: true
       }).then((result) => {
         if (result.isConfirmed) {
-                            Swal.fire({
-                                title: 'Listo, hemos realizado el proceso',
-                                icon: 'success',
-                                confirmButtonText: 'Ok'
-                              });
+          $.ajax({
+            url: "request-password-reset/" + btoa(id),
+            method: "POST",
+            success: function(response){
+              Swal.fire({
+                title: 'Listo, hemos realizado el proceso',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              });
+            },
+            error: function(){
+              Swal.fire({
+                title: 'Error',
+                text: 'No se pudo solicitar el cambio de contraseña.',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+              });
+            }
+          });
         } else if (
-          /* Read more about handling dismissals below */
           result.dismiss === Swal.DismissReason.cancel
         ) {
           swalWithBootstrapButtons.fire(
